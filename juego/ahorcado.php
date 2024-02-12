@@ -136,17 +136,9 @@ function gameWin($attemps)
         return "Suerte a la próxima vez!\n";
 }
 
-// function resetGame( $attemps , $discover_letters , $possible_words){
-//     echo $discover_letters;
-//     var_dump($discover_letters);
-
-//     $resetGame = strtolower(readline('¿Deseas intentarlo de nuevo?'));
-
-//     if($resetGame == "si"){
-//         initGame($palabras);
-//     }
-
-// }
+function resetGame($attemps, $discover_letters){
+    #code...
+}
 
 function randomWord($words)
 {
