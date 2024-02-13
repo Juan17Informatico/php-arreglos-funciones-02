@@ -70,16 +70,16 @@ function printMan($attemps)
     }
 }
 
-function str_contains($haystack, $letter)
-{
-    $chars = str_split($haystack);
-    foreach ($chars as $char) {
-        if ($char == $letter) {
-            return true;
-        }
-    }
-    return false;
-}
+// function str_contains($haystack, $letter)
+// {
+//     $chars = str_split($haystack);
+//     foreach ($chars as $char) {
+//         if ($char == $letter) {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
 
 function initGame($possible_words)
 {
