@@ -2,6 +2,8 @@
 define("MAX_ATTEMPS", 6);
 $possible_words = ["Bebida", "Prisma", "Ala", "Dolores", "Mares", "Trampas", "Pan", "Coca", "Hawai", "Volcan", "Elefante", "Circo"];
 
+
+
 function clear()
 {
     if (PHP_OS === "WINNT") {
@@ -83,6 +85,7 @@ function str_contains($haystack, $letter)
 
 function initGame($possible_words)
 {
+    $juego_on = true;
     //Iniciamos el juego
     echo "====BIENVENIDO AL JUEGO DEL AHORCADO====\n\n";
 
@@ -124,8 +127,10 @@ function initGame($possible_words)
     } while ($attemps < MAX_ATTEMPS && $discover_letters != $choosen_word);
 
     // resetGame(0,$discover_letters);
-
+    $juego_on = false;
     echo gameWin($attemps);
+    resetGame($juego_on, $discover_letters, $possible_words);
+    
 }
 
 function gameWin($attemps)
@@ -136,8 +141,19 @@ function gameWin($attemps)
         return "Suerte a la próxima vez!\n";
 }
 
-function resetGame($attemps, $discover_letters){
-    #code...
+function resetGame($juego_on, $discover_letters, $possible_words){
+
+    if(!$juego_on){
+        foreach ($possible_words as $value) {
+            if($discover_letters == $value){
+                continue;
+            }else{
+                echo "Reset Game: ";
+                initGame($possible_words);
+            }
+        }
+    }
+    
 }
 
 function randomWord($words)
